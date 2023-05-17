@@ -56,12 +56,8 @@ class MyApp extends StatelessWidget {
             builder: (context, state) => const SettingPage(),
           ),
         ]),
-    GoRoute(
-      path: '/home',
-      name: 'home',
-      builder: (context, state) => const HomePage(),
-    ),
-  ]);
+  ], initialLocation: '/login',
+  );
 
   // This widget is the root of your application.
   @override
