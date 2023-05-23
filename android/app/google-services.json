@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "631686268948",
+    "project_id": "tbcare-7f885",
+    "storage_bucket": "tbcare-7f885.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:631686268948:android:81a5e8dc9ff769e55bbf01",
+        "android_client_info": {
+          "package_name": "com.example.tbcare_application"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "631686268948-dn0nnmjjchrh8lq9nqa1ul9ot7qdhngg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtDvlyO6lzY6dPB5TseeI_bkndxRcYEu8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "631686268948-dn0nnmjjchrh8lq9nqa1ul9ot7qdhngg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
