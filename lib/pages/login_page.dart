@@ -47,8 +47,8 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController controller = TextEditingController(text: "");
-    TextEditingController passs = TextEditingController(text: "");
+    TextEditingController emailController = TextEditingController(text: "");
+    TextEditingController emailPass = TextEditingController(text: "");
     return Scaffold(
         body: SingleChildScrollView(
       child: Column(
@@ -86,7 +86,7 @@ class LoginPage extends StatelessWidget {
                   height: 40,
                 ),
                 TextField(
-                  controller: controller,
+                  controller: emailController,
                   decoration: const InputDecoration(
                     prefixIcon: Icon(
                       Icons.email_outlined,
@@ -100,7 +100,7 @@ class LoginPage extends StatelessWidget {
                 ),
                 TextField(
                   obscureText: true,
-                  controller: passs,
+                  controller: emailPass,
                   decoration: const InputDecoration(
                     prefixIcon: Icon(
                       Icons.lock_outline,
