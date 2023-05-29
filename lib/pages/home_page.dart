@@ -98,14 +98,23 @@ class HomePage extends StatelessWidget {
             ),
         body: SingleChildScrollView(
           child: SafeArea(child: Container(
-            margin: const EdgeInsets.symmetric(vertical: 35, horizontal: 23),
+            margin: const EdgeInsets.symmetric(vertical: 25, horizontal: 25),
             width: MediaQuery.of(context).size.width,
             child: Column(children: [
-              Row(
+              const Row(
                 children: <Widget>[
-                  const Text(
+                  Text(
                     "Hallo,",
                     style: TextStyle(fontSize: 17),
+                  ),
+                  
+                ],
+              ),
+              Row(
+                children: <Widget>[
+                  Text(
+                    "Desika Candra",
+                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 25),
                   ),
                   const Spacer(),
                   Container(
@@ -117,14 +126,6 @@ class HomePage extends StatelessWidget {
                       size: 40,
                     ),
                   ),
-                ],
-              ),
-              Row(
-                children: <Widget>[
-                  Text(
-                    "Desika Candra",
-                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 25),
-                  )
                 ],
               ),
               Container(

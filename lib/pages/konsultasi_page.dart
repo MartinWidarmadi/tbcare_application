@@ -78,7 +78,7 @@ class KonsultasiPage extends StatelessWidget {
                     ),
                     Container(
                       width: MediaQuery.of(context).size.width * 0.7,
-                      height: 100,
+                      height: 120,
                       padding: EdgeInsets.all(20),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
@@ -94,7 +94,7 @@ class KonsultasiPage extends StatelessWidget {
                     ),
                     Container(
                       width: MediaQuery.of(context).size.width * 0.7,
-                      height: 150,
+                      height: 160,
                       padding: EdgeInsets.all(20),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
@@ -123,7 +123,7 @@ class KonsultasiPage extends StatelessWidget {
               ),
             ),
             Container(
-              margin: EdgeInsets.only(top: 231),
+              margin: EdgeInsets.only(top: 315),
               child: TextField(
                 controller: pesanController,
                 decoration: const InputDecoration(

@@ -38,7 +38,7 @@ Widget MasukBtn(context) {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Container(
-                  margin: EdgeInsets.only(top: 25),
+                  margin: EdgeInsets.only(top: 95),
                   child: const Text(
                     "TBCare",
                     style: TextStyle(
@@ -51,8 +51,8 @@ Widget MasukBtn(context) {
             ),
             Container(
               padding: EdgeInsets.all(20),
-              margin: EdgeInsets.only(top: 35),
-              height: 541,
+              margin: EdgeInsets.only(top: 45),
+              height: 569,
               width: MediaQuery.of(context).size.width,
               decoration: const BoxDecoration(
                   color: Color(0xff73FE9A),
