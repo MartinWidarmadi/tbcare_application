@@ -1,10 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:tbcare_application/data/model/models.dart';
-import 'package:tbcare_application/data/repositories/user_repository.dart';
+import 'package:tbcare_application/data/repositories/wali_repository.dart';
 import 'package:tbcare_application/data/tresult.dart';
 
-class FirebaseWaliRepository implements UserRepository {
+class FirebaseWaliRepository implements WaliRepository {
   final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
   final FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
 
@@ -22,7 +22,7 @@ class FirebaseWaliRepository implements UserRepository {
   }
 
   @override
-  Future<TResult<String>> addUserAccount(String email, String password) async {
+  Future<TResult<String>> addWaliAccount(String email, String password) async {
     try {
       UserCredential account = await firebaseAuth
           .createUserWithEmailAndPassword(email: email, password: password);
@@ -35,7 +35,7 @@ class FirebaseWaliRepository implements UserRepository {
   }
 
   @override
-  Future<TResult<Wali>> addUserData(
+  Future<TResult<Wali>> addWaliData(
       String email, String nama, String nik) async {
     String newId = firebaseFirestore.collection('wali').doc().id;
     try {
@@ -48,7 +48,7 @@ class FirebaseWaliRepository implements UserRepository {
           ],
           nik: nik);
       await firebaseFirestore
-          .collection('pasien')
+          .collection('wali')
           .doc(newId)
           .set(newWaliData.toJson());
       return TResult.success(newWaliData);
@@ -65,5 +65,10 @@ class FirebaseWaliRepository implements UserRepository {
     } catch (e) {
       return TResult.failed(e.toString());
     }
+  }
+
+  @override
+  Future<TResult<Wali>> getWaliData(String id) {
+    throw UnimplementedError();
   }
 }

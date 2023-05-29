@@ -1,6 +1,6 @@
 import 'package:tbcare_application/data/tresult.dart';
 
-abstract class UseCases<T, P> {
+abstract interface class UseCases<T, P> {
   Future<TResult<T>> call(P params);
 }
 

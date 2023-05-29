@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:tbcare_application/data/providers/firebase_providers/firebase_providers.dart';
 import 'package:tbcare_application/pages/kesehatan_page.dart';
 import 'package:tbcare_application/pages/konsultasi_page.dart';
 import 'package:tbcare_application/pages/kontrol_page.dart';
 import 'package:tbcare_application/pages/medic_page.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends ConsumerWidget {
   const HomePage({super.key});
 
   Widget KntrlBtn(context) {
@@ -88,7 +90,9 @@ class HomePage extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final dataPasienProvider = ref.watch(firebasePasienDataProvider);
+
     return Scaffold(
         bottomNavigationBar: BottomNavigationBar(
           items: const [
@@ -121,11 +125,12 @@ class HomePage extends StatelessWidget {
                   ),
                 ],
               ),
-              const Row(
+              Row(
                 children: <Widget>[
                   Text(
-                    "Desika Candra",
-                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 25),
+                    dataPasienProvider.nama,
+                    style: const TextStyle(
+                        fontWeight: FontWeight.w600, fontSize: 25),
                   )
                 ],
               ),
@@ -137,10 +142,10 @@ class HomePage extends StatelessWidget {
                 decoration: BoxDecoration(
                     color: const Color(0xff007E23),
                     borderRadius: BorderRadius.circular(20)),
-                child: const Column(
+                child: Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: <Widget>[
-                      Row(
+                      const Row(
                         children: <Widget>[
                           Text(
                             "TBCare",
@@ -157,19 +162,21 @@ class HomePage extends StatelessWidget {
                           )
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 25,
                       ),
                       Text(
-                        "Desika Candra",
-                        style: TextStyle(color: Colors.white, fontSize: 20),
+                        dataPasienProvider.nama,
+                        style:
+                            const TextStyle(color: Colors.white, fontSize: 20),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Text(
-                        "11212223123",
-                        style: TextStyle(color: Colors.white, fontSize: 20),
+                        dataPasienProvider.nik,
+                        style:
+                            const TextStyle(color: Colors.white, fontSize: 20),
                       )
                     ]),
               ),

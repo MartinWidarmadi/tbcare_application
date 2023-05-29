@@ -1,30 +1,33 @@
 import 'package:tbcare_application/data/model/models.dart';
-import 'package:tbcare_application/data/repositories/user_repository.dart';
+import 'package:tbcare_application/data/repositories/pasien_repository.dart';
 import 'package:tbcare_application/data/tresult.dart';
 import 'package:tbcare_application/data/usecases/use_cases.dart';
 
 class PasienRegister implements UseCases<Pasien, PasienRegisterParams> {
-  final UserRepository _pasienRepository;
+  final PasienRepository _pasienRepository;
 
   PasienRegister(this._pasienRepository);
 
   @override
   Future<TResult<Pasien>> call(PasienRegisterParams params) async {
-    TResult<String> accData =
-        await _pasienRepository.addUserAccount(params.email, params.password);
+    TResult<String> uidResult =
+        await _pasienRepository.addPasienAccount(params.email, params.password);
 
     Pasien? dataPasien;
     String? errorMessage;
-    accData.when(
-        success: (data) async {
-          TResult addData = await _pasienRepository.addUserData(
-              params.email, params.nama, params.nik);
 
-          addData.when(
-              success: (data) => dataPasien = data,
-              failed: (message) => errorMessage = message);
-        },
-        failed: (message) => errorMessage = message);
+    await uidResult.when(success: (uid) async {
+      TResult addData = await _pasienRepository.addPasienData(
+          params.email, params.nama, params.nik, uid);
+
+      addData.when(success: (data) {
+        dataPasien = data;
+      }, failed: (message) {
+        errorMessage = message;
+      });
+    }, failed: (message) {
+      errorMessage = message;
+    });
 
     if (dataPasien != null) {
       return TResult.success(dataPasien!);
@@ -40,9 +43,10 @@ class PasienRegisterParams {
   final String nama;
   final String nik;
 
-  PasienRegisterParams(
-      {required this.email,
-      required this.password,
-      required this.nama,
-      required this.nik});
+  PasienRegisterParams({
+    required this.email,
+    required this.password,
+    required this.nama,
+    required this.nik,
+  });
 }

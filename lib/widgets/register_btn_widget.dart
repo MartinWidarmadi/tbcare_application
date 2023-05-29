@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tbcare_application/data/model/models.dart';
-import 'package:tbcare_application/data/providers/firebase_providers/pasien/firebase_pasien_data_provider.dart';
-import 'package:tbcare_application/data/providers/firebase_providers/pasien/firebase_pasien_repository_provider.dart';
+import 'package:tbcare_application/data/providers/firebase_providers/firebase_providers.dart';
 import 'package:tbcare_application/data/tresult.dart';
 import 'package:tbcare_application/data/usecases/use_cases_exporter.dart';
+import 'package:tbcare_application/pages/pages.dart';
 import 'package:tbcare_application/widgets/widgets.dart';
 
 class RegisterBtnWidget extends ConsumerWidget {
@@ -61,7 +61,9 @@ class RegisterBtnWidget extends ConsumerWidget {
 
           result.when(
               success: (data) {
-                ref.watch(FirebasePasienDataProvider(data));
+                ref
+                    .watch(firebasePasienDataProvider.notifier)
+                    .pasienState(data);
                 // Registrasi berhasil
                 showDialog(
                   context: context,
@@ -73,6 +75,8 @@ class RegisterBtnWidget extends ConsumerWidget {
                     );
                   },
                 );
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const LoginPage()));
               },
               failed: (message) => showDialog(
                     context: context,

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:tbcare_application/data/providers/firebase_providers/pasien/firebase_pasien_repository_provider.dart';
+import 'package:tbcare_application/data/providers/firebase_providers/firebase_providers.dart';
 import 'package:tbcare_application/data/tresult.dart';
-import 'package:tbcare_application/data/usecases/login.dart';
+import 'package:tbcare_application/data/usecases/use_cases_exporter.dart';
+import 'package:tbcare_application/widgets/widgets.dart';
 
+import '../data/model/models.dart';
 import '../pages/pages.dart';
 
 class LoginBtnWidget extends StatelessWidget {
@@ -29,23 +31,27 @@ class LoginBtnWidget extends StatelessWidget {
           backgroundColor: const Color(0xff007E23),
         ),
         onPressed: () async {
-          SignInParams params = SignInParams(
+          PasienLoginParams params = PasienLoginParams(
               email: emailController.text.trim(),
               password: passwordController.text.trim());
 
-          SignIn signIn = SignIn(ref.watch(firebasePasienRepositoryProvider));
+          PasienLogin login =
+              PasienLogin(ref.watch(firebasePasienRepositoryProvider));
 
-          TResult<String> result = await signIn.call(params);
+          TResult<Pasien> result = await login.call(params);
 
           result.when(
               success: (value) {
-                // context.goNamed()a
+                ref
+                    .watch(firebasePasienDataProvider.notifier)
+                    .pasienState(value);
                 print(value);
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return const HomePage();
                 }));
               },
-              failed: (errorMessage) => print(errorMessage));
+              failed: (errorMessage) => AlertDialogWidget(
+                  title: 'Login gagal', content: errorMessage, textBtn: 'OK'));
         },
         child: Text(
           text,

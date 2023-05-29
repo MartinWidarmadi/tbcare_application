@@ -6,7 +6,12 @@ part 'firebase_pasien_data_provider.g.dart';
 @riverpod
 class FirebasePasienData extends _$FirebasePasienData {
   @override
-  Future<Pasien> build(Pasien pasien) async {
-    return pasien;
+  Pasien build() {
+    return const Pasien(
+        id: 'id', nama: 'nama', email: 'email', wali: [], nik: 'nik');
+  }
+
+  void pasienState(pasien) {
+    state = pasien;
   }
 }

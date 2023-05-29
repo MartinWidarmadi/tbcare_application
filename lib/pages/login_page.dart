@@ -72,6 +72,23 @@ class LoginPage extends ConsumerWidget {
                     hintText: 'Password',
                   ),
                 ),
+                // ElevatedButton(
+                //     onPressed: () async {
+                //       var auth = await FirebasePasienRepository()
+                //           .accountAuth('desika@email.com', '123456');
+
+                //       auth.when(
+                //           success: (data) => print(data),
+                //           failed: (message) => print(message));
+
+                //       var ambilData = await FirebasePasienRepository()
+                //           .getPasienData('3Os2TT3qvmTQetG6F0XYwLjGogp1');
+
+                //       ambilData.when(
+                //           success: (data) => print(data),
+                //           failed: (message) => print(message));
+                //     },
+                //     child: const Text('test')),
                 LoginBtnWidget(
                     emailController: emailController,
                     passwordController: passwordController,
