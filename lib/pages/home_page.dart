@@ -9,11 +9,12 @@ class HomePage extends StatelessWidget {
 
   Widget KntrlBtn(context) {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 5),
+      padding: const EdgeInsets.symmetric(vertical: 5),
       width: 85,
       child: ElevatedButton(
           style: ElevatedButton.styleFrom(
-              backgroundColor: Color(0xff73FE9A), minimumSize: Size(200, 60)),
+              backgroundColor: const Color(0xff73FE9A),
+              minimumSize: const Size(200, 60)),
           onPressed: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) {
               return KontrolPage();
@@ -28,14 +29,15 @@ class HomePage extends StatelessWidget {
 
   Widget MedicBtn(context) {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 5),
+      padding: const EdgeInsets.symmetric(vertical: 5),
       width: 85,
       child: ElevatedButton(
           style: ElevatedButton.styleFrom(
-              backgroundColor: Color(0xff73FE9A), minimumSize: Size(200, 60)),
+              backgroundColor: const Color(0xff73FE9A),
+              minimumSize: const Size(200, 60)),
           onPressed: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return MedicPage();
+              return const MedicPage();
             }));
           },
           child: const Icon(
@@ -47,14 +49,15 @@ class HomePage extends StatelessWidget {
 
   Widget KshtnBtn(context) {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 5),
+      padding: const EdgeInsets.symmetric(vertical: 5),
       width: 85,
       child: ElevatedButton(
           style: ElevatedButton.styleFrom(
-              backgroundColor: Color(0xff73FE9A), minimumSize: Size(200, 60)),
+              backgroundColor: const Color(0xff73FE9A),
+              minimumSize: const Size(200, 60)),
           onPressed: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return KesehatanPage();
+              return const KesehatanPage();
             }));
           },
           child: const Icon(
@@ -66,14 +69,15 @@ class HomePage extends StatelessWidget {
 
   Widget KonsulBtn(context) {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 5),
+      padding: const EdgeInsets.symmetric(vertical: 5),
       width: 85,
       child: ElevatedButton(
           style: ElevatedButton.styleFrom(
-              backgroundColor: Color(0xff73FE9A), minimumSize: Size(200, 60)),
+              backgroundColor: const Color(0xff73FE9A),
+              minimumSize: const Size(200, 60)),
           onPressed: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return KonsultasiPage();
+              return const KonsultasiPage();
             }));
           },
           child: const Icon(
@@ -87,12 +91,13 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         bottomNavigationBar: BottomNavigationBar(
-              items: [
-                BottomNavigationBarItem(icon: Icon(Icons.settings), label: ''),
-                BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
-                BottomNavigationBarItem(icon: Icon(Icons.person), label: '')
-              ],currentIndex: 1,
-            ),
+          items: const [
+            BottomNavigationBarItem(icon: Icon(Icons.settings), label: ''),
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
+            BottomNavigationBarItem(icon: Icon(Icons.person), label: '')
+          ],
+          currentIndex: 1,
+        ),
         body: SingleChildScrollView(
           child: Container(
             margin: const EdgeInsets.symmetric(vertical: 35, horizontal: 23),
@@ -100,23 +105,23 @@ class HomePage extends StatelessWidget {
             child: Column(children: [
               Row(
                 children: <Widget>[
-                  Text(
+                  const Text(
                     "Hallo,",
                     style: TextStyle(fontSize: 17),
                   ),
-                  Spacer(),
+                  const Spacer(),
                   Container(
                     decoration: BoxDecoration(
                         color: Colors.grey,
                         borderRadius: BorderRadius.circular(30)),
-                    child: Icon(
+                    child: const Icon(
                       Icons.person,
                       size: 40,
                     ),
                   ),
                 ],
               ),
-              Row(
+              const Row(
                 children: <Widget>[
                   Text(
                     "Desika Candra",
@@ -125,12 +130,12 @@ class HomePage extends StatelessWidget {
                 ],
               ),
               Container(
-                padding: EdgeInsets.all(15),
-                margin: EdgeInsets.only(top: 15),
+                padding: const EdgeInsets.all(15),
+                margin: const EdgeInsets.only(top: 15),
                 height: 200,
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
-                    color: Color(0xff007E23),
+                    color: const Color(0xff007E23),
                     borderRadius: BorderRadius.circular(20)),
                 child: const Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
@@ -168,7 +173,7 @@ class HomePage extends StatelessWidget {
                       )
                     ]),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Row(

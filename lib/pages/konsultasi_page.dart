@@ -14,10 +14,10 @@ class KonsultasiPage extends StatelessWidget {
             Row(
               children: [
                 Container(
-                  color: Color(0xff73FE9A),
+                  color: const Color(0xff73FE9A),
                   height: 90,
                   width: MediaQuery.of(context).size.width,
-                  padding: EdgeInsets.only(top: 20),
+                  padding: const EdgeInsets.only(top: 20),
                   child: Row(
                     children: <Widget>[
                       const SizedBox(
@@ -25,15 +25,15 @@ class KonsultasiPage extends StatelessWidget {
                       ),
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                            backgroundColor: Color(0xff73FE9A),
-                            minimumSize: Size(0, 0)),
+                            backgroundColor: const Color(0xff73FE9A),
+                            minimumSize: const Size(0, 0)),
                         onPressed: () {
                           Navigator.pop(context,
                               MaterialPageRoute(builder: (context) {
-                            return HomePage();
+                            return const HomePage();
                           }));
                         },
-                        child: Icon(Icons.arrow_back),
+                        child: const Icon(Icons.arrow_back),
                       ),
                       const Spacer(),
                       const Text(
@@ -57,7 +57,7 @@ class KonsultasiPage extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     Row(
@@ -66,9 +66,9 @@ class KonsultasiPage extends StatelessWidget {
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(20),
                               color: Colors.grey),
-                          child: Icon(Icons.person),
+                          child: const Icon(Icons.person),
                         ),
-                        Text(
+                        const Text(
                           "  Customber Service",
                         )
                       ],
@@ -79,12 +79,12 @@ class KonsultasiPage extends StatelessWidget {
                     Container(
                       width: MediaQuery.of(context).size.width * 0.7,
                       height: 100,
-                      padding: EdgeInsets.all(20),
+                      padding: const EdgeInsets.all(20),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
-                        color: Color(0xff73FE9A),
+                        color: const Color(0xff73FE9A),
                       ),
-                      child: Text(
+                      child: const Text(
                         "Selamat datang di layanan konsultasi kami. Silahkan konsultasi dengan quick chat yang ada dibawah",
                         style: TextStyle(color: Color(0xff007E23)),
                       ),
@@ -95,10 +95,10 @@ class KonsultasiPage extends StatelessWidget {
                     Container(
                       width: MediaQuery.of(context).size.width * 0.7,
                       height: 150,
-                      padding: EdgeInsets.all(20),
+                      padding: const EdgeInsets.all(20),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
-                        color: Color(0xff73FE9A),
+                        color: const Color(0xff73FE9A),
                       ),
                       child: const Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -123,7 +123,7 @@ class KonsultasiPage extends StatelessWidget {
               ),
             ),
             Container(
-              margin: EdgeInsets.only(top: 231),
+              margin: const EdgeInsets.only(top: 231),
               child: TextField(
                 controller: pesanController,
                 decoration: const InputDecoration(

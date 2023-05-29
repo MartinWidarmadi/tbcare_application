@@ -1,10 +1,9 @@
+// ignore_for_file: camel_case_types
+
 import 'package:flutter/material.dart';
-import 'package:tbcare_application/data/providers/firebase_providers/user/firebase_user_repository_provider.dart';
-import 'package:tbcare_application/data/tresult.dart';
-import 'package:tbcare_application/data/usecases/sign_in.dart';
-import 'package:tbcare_application/pages/home_page.dart';
 import 'package:tbcare_application/pages/register_page.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:tbcare_application/widgets/login_btn_widget.dart';
 
 class LoginPage extends ConsumerWidget {
   const LoginPage({super.key});
@@ -12,7 +11,7 @@ class LoginPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     TextEditingController emailController = TextEditingController(text: "");
-    TextEditingController emailPass = TextEditingController(text: "");
+    TextEditingController passwordController = TextEditingController(text: "");
     return Scaffold(
         body: SingleChildScrollView(
       child: Column(
@@ -64,7 +63,7 @@ class LoginPage extends ConsumerWidget {
                 ),
                 TextField(
                   obscureText: true,
-                  controller: emailPass,
+                  controller: passwordController,
                   decoration: const InputDecoration(
                     prefixIcon: Icon(
                       Icons.lock_outline,
@@ -73,8 +72,11 @@ class LoginPage extends ConsumerWidget {
                     hintText: 'Password',
                   ),
                 ),
-                LgnBtn(context, emailController.text.trim(),
-                    emailPass.text.trim(), ref),
+                LoginBtnWidget(
+                    emailController: emailController,
+                    passwordController: passwordController,
+                    ref: ref,
+                    text: "Masuk"),
                 const Text("Atau"),
                 Container(
                     margin: const EdgeInsets.fromLTRB(100, 20, 100, 25),
@@ -95,39 +97,6 @@ class LoginPage extends ConsumerWidget {
         ],
       ),
     ));
-  }
-
-  Widget LgnBtn(
-      BuildContext context, String email, String password, WidgetRef ref) {
-    return Container(
-      padding: const EdgeInsets.symmetric(vertical: 25),
-      width: double.infinity,
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          backgroundColor: const Color(0xff007E23),
-        ),
-        onPressed: () async {
-          SignInParams params = SignInParams(email: email, password: password);
-
-          SignIn signIn = SignIn(ref.watch(firebaseUserRepositoryProvider));
-
-          TResult<String> result = await signIn.call(params);
-
-          result.when(
-              success: (value) {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return const HomePage();
-                }));
-              },
-              failed: (errorMessage) => print(errorMessage));
-        },
-        child: const Text(
-          "Masuk",
-          style: TextStyle(
-              color: Colors.white, fontSize: 15, fontWeight: FontWeight.bold),
-        ),
-      ),
-    );
   }
 
   Widget DaftarBtn(context) {

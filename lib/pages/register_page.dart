@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:tbcare_application/pages/login_page.dart';
+import 'package:tbcare_application/widgets/widgets.dart';
 
 class RegisterPage extends StatelessWidget {
   const RegisterPage({super.key});
 
-
-Widget MasukBtn(context) {
+  Widget MasukBtn(context) {
     return GestureDetector(
       onTap: () {
         Navigator.push(context, MaterialPageRoute(builder: (context) {
-          return LoginPage();
+          return const LoginPage();
         }));
       },
       child: RichText(
@@ -25,10 +25,11 @@ Widget MasukBtn(context) {
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController _nikController = TextEditingController();
-    TextEditingController _emailController = TextEditingController();
-    TextEditingController _passwordController = TextEditingController();
-    TextEditingController _confirmPasswordController = TextEditingController();
+    TextEditingController nikController = TextEditingController();
+    TextEditingController emailController = TextEditingController();
+    TextEditingController passwordController = TextEditingController();
+    TextEditingController confirmPasswordController = TextEditingController();
+    TextEditingController namaController = TextEditingController();
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -38,7 +39,7 @@ Widget MasukBtn(context) {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Container(
-                  margin: EdgeInsets.only(top: 25),
+                  margin: const EdgeInsets.only(top: 25),
                   child: const Text(
                     "TBCare",
                     style: TextStyle(
@@ -50,8 +51,8 @@ Widget MasukBtn(context) {
               ],
             ),
             Container(
-              padding: EdgeInsets.all(20),
-              margin: EdgeInsets.only(top: 35),
+              padding: const EdgeInsets.all(20),
+              margin: const EdgeInsets.only(top: 35),
               height: 541,
               width: MediaQuery.of(context).size.width,
               decoration: const BoxDecoration(
@@ -67,101 +68,55 @@ Widget MasukBtn(context) {
                     height: 25,
                   ),
                   TextField(
-                    controller: _nikController,
-                    decoration: InputDecoration(
+                    controller: nikController,
+                    decoration: const InputDecoration(
                       labelText: 'NIK',
                     ),
                   ),
-                  SizedBox(height: 16.0),
+                  const SizedBox(height: 16.0),
                   TextField(
-                    controller: _emailController,
-                    decoration: InputDecoration(
+                    controller: namaController,
+                    decoration: const InputDecoration(
+                      labelText: 'Nama',
+                    ),
+                  ),
+                  const SizedBox(height: 16.0),
+                  TextField(
+                    controller: emailController,
+                    decoration: const InputDecoration(
                       labelText: 'Email',
                     ),
                   ),
-                  SizedBox(height: 16.0),
+                  const SizedBox(height: 16.0),
                   TextField(
-                    controller: _passwordController,
-                    decoration: InputDecoration(
+                    controller: passwordController,
+                    decoration: const InputDecoration(
                       labelText: 'Password',
                     ),
                     obscureText: true,
                   ),
-                  SizedBox(height: 16.0),
+                  const SizedBox(height: 16.0),
                   TextField(
-                    controller: _confirmPasswordController,
-                    decoration: InputDecoration(
+                    controller: confirmPasswordController,
+                    decoration: const InputDecoration(
                       labelText: 'Konfirmasi Password',
                     ),
                     obscureText: true,
                   ),
-                  SizedBox(height: 16.0),
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: Color(0xff007E23),
-                        minimumSize: Size(300, 35)),
-                    onPressed: () {
-                      // Proses registrasi
-                      String nik = _nikController.text;
-                      String email = _emailController.text;
-                      String password = _passwordController.text;
-                      String confirmPassword = _confirmPasswordController.text;
-
-                      // TODO: Implementasi logika registrasi sesuai kebutuhan
-
-                      // Contoh validasi sederhana
-                      if (nik.isNotEmpty &&
-                          email.isNotEmpty &&
-                          password.isNotEmpty &&
-                          password == confirmPassword) {
-                        // Registrasi berhasil
-                        showDialog(
-                          context: context,
-                          builder: (context) {
-                            return AlertDialog(
-                              title: Text('Registrasi Berhasil'),
-                              content:
-                                  Text('Akun Anda telah berhasil didaftarkan.'),
-                              actions: <Widget>[
-                                TextButton(
-                                  child: Text('OK'),
-                                  onPressed: () {
-                                    Navigator.pop(context);
-                                  },
-                                ),
-                              ],
-                            );
-                          },
-                        );
-                      } else {
-                        // Registrasi gagal
-                        showDialog(
-                          context: context,
-                          builder: (context) {
-                            return AlertDialog(
-                              title: Text('Registrasi Gagal'),
-                              content: Text(
-                                  'Mohon lengkapi semua informasi dengan benar.'),
-                              actions: <Widget>[
-                                TextButton(
-                                  child: Text('OK'),
-                                  onPressed: () {
-                                    Navigator.pop(context);
-                                  },
-                                ),
-                              ],
-                            );
-                          },
-                        );
-                      }
-                    },
-                    child: Text('Daftar'),
+                  const SizedBox(height: 16.0),
+                  RegisterBtnWidget(
+                      nikController: nikController,
+                      emailController: emailController,
+                      passwordController: passwordController,
+                      confirmPasswordController: confirmPasswordController,
+                      namaController: namaController),
+                  const SizedBox(
+                    height: 15,
                   ),
-                  const SizedBox(height: 15,),
                   const Text("Atau"),
                   Container(
-                      margin: EdgeInsets.fromLTRB(100, 20, 100, 25),
-                      child: Row(
+                      margin: const EdgeInsets.fromLTRB(100, 20, 100, 25),
+                      child: const Row(
                         children: <Widget>[
                           Icon(Icons.email, size: 35, color: Color(0xff007E23)),
                           Spacer(),
@@ -171,7 +126,7 @@ Widget MasukBtn(context) {
                           Icon(Icons.apple, size: 35, color: Color(0xff007E23))
                         ],
                       )),
-                      MasukBtn(context),
+                  MasukBtn(context),
                 ],
               ),
             ),

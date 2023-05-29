@@ -13,10 +13,10 @@ class KesehatanPage extends StatelessWidget {
             Row(
               children: [
                 Container(
-                  color: Color(0xff73FE9A),
+                  color: const Color(0xff73FE9A),
                   height: 90,
                   width: MediaQuery.of(context).size.width,
-                  padding: EdgeInsets.only(top: 20),
+                  padding: const EdgeInsets.only(top: 20),
                   child: Row(
                     children: <Widget>[
                       const SizedBox(
@@ -24,15 +24,15 @@ class KesehatanPage extends StatelessWidget {
                       ),
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                            backgroundColor: Color(0xff73FE9A),
-                            minimumSize: Size(0, 0)),
+                            backgroundColor: const Color(0xff73FE9A),
+                            minimumSize: const Size(0, 0)),
                         onPressed: () {
                           Navigator.pop(context,
                               MaterialPageRoute(builder: (context) {
-                            return HomePage();
+                            return const HomePage();
                           }));
                         },
-                        child: Icon(Icons.arrow_back),
+                        child: const Icon(Icons.arrow_back),
                       ),
                       const Spacer(),
                       const Text(
