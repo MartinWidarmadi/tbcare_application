@@ -85,6 +85,9 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: unused_local_variable
+    final currentWidth = MediaQuery.of(context).size.width;
+    
     return Scaffold(
         bottomNavigationBar: BottomNavigationBar(
               items: [
@@ -94,22 +97,22 @@ class HomePage extends StatelessWidget {
               ],currentIndex: 1,
             ),
         body: SingleChildScrollView(
-          child: Container(
+          child: SafeArea(child: Container(
             margin: const EdgeInsets.symmetric(vertical: 35, horizontal: 23),
             width: MediaQuery.of(context).size.width,
             child: Column(children: [
               Row(
                 children: <Widget>[
-                  Text(
+                  const Text(
                     "Hallo,",
                     style: TextStyle(fontSize: 17),
                   ),
-                  Spacer(),
+                  const Spacer(),
                   Container(
                     decoration: BoxDecoration(
                         color: Colors.grey,
                         borderRadius: BorderRadius.circular(30)),
-                    child: Icon(
+                    child: const Icon(
                       Icons.person,
                       size: 40,
                     ),
@@ -168,7 +171,7 @@ class HomePage extends StatelessWidget {
                       )
                     ]),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Row(
@@ -181,7 +184,7 @@ class HomePage extends StatelessWidget {
                 ],
               ),
             ]),
-          ),
+          ),) 
         ));
   }
 }
