@@ -61,7 +61,7 @@ class KontrolPage extends StatelessWidget {
 
   Widget content() {
     return Padding(
-      padding: const EdgeInsets.all(20.0),
+      padding: const EdgeInsets.all(10.0),
       child: Column(
         children: <Widget>[
           Text("Selected Day = ${today.toString().split(" ")[0]}"),

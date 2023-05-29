@@ -92,6 +92,8 @@ class HomePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final dataPasienProvider = ref.watch(firebasePasienDataProvider);
+    // ignore: unused_local_variable
+    final currentWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
         bottomNavigationBar: BottomNavigationBar(
@@ -103,6 +105,7 @@ class HomePage extends ConsumerWidget {
           currentIndex: 1,
         ),
         body: SingleChildScrollView(
+            child: SafeArea(
           child: Container(
             margin: const EdgeInsets.symmetric(vertical: 35, horizontal: 23),
             width: MediaQuery.of(context).size.width,
@@ -194,6 +197,6 @@ class HomePage extends ConsumerWidget {
               ),
             ]),
           ),
-        ));
+        )));
   }
 }
