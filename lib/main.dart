@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
             GoRoute(
               path: 'kontrol',
               name: 'kontrol',
-              builder: (context, state) => const KontrolPage(),
+              builder: (context, state) => KontrolPage(),
             ),
             GoRoute(
               path: 'medic',
