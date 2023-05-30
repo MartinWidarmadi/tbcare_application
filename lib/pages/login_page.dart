@@ -20,7 +20,7 @@ class LoginPage extends ConsumerWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Container(
-                margin: const EdgeInsets.only(top: 25),
+                margin: const EdgeInsets.only(top:95),
                 child: const Text(
                   "TBCare",
                   style: TextStyle(
@@ -33,8 +33,8 @@ class LoginPage extends ConsumerWidget {
           ),
           Container(
             padding: const EdgeInsets.all(20),
-            margin: const EdgeInsets.only(top: 35),
-            height: 541,
+            margin: const EdgeInsets.only(top: 45),
+            height: 569,
             width: MediaQuery.of(context).size.width,
             decoration: const BoxDecoration(
                 color: Color(0xff73FE9A),
@@ -96,7 +96,7 @@ class LoginPage extends ConsumerWidget {
                     text: "Masuk"),
                 const Text("Atau"),
                 Container(
-                    margin: const EdgeInsets.fromLTRB(100, 20, 100, 25),
+                    margin: const const EdgeInsets.fromLTRB(100, 20, 100, 25),
                     child: const Row(
                       children: <Widget>[
                         Icon(Icons.email, size: 35, color: Color(0xff007E23)),

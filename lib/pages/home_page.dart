@@ -105,16 +105,24 @@ class HomePage extends ConsumerWidget {
           currentIndex: 1,
         ),
         body: SingleChildScrollView(
-            child: SafeArea(
-          child: Container(
-            margin: const EdgeInsets.symmetric(vertical: 35, horizontal: 23),
+          child: SafeArea(child: Container(
+            margin: const EdgeInsets.symmetric(vertical: 25, horizontal: 25),
             width: MediaQuery.of(context).size.width,
             child: Column(children: [
+              const Row(
+                children: <Widget>[
+                  Text(
+                    "Hallo,",
+                    style: TextStyle(fontSize: 17),
+                  ),
+                  
+                ],
+              ),
               Row(
                 children: <Widget>[
                   const Text(
-                    "Hallo,",
-                    style: TextStyle(fontSize: 17),
+                    "Desika Candra",
+                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 25),
                   ),
                   const Spacer(),
                   Container(
@@ -126,15 +134,6 @@ class HomePage extends ConsumerWidget {
                       size: 40,
                     ),
                   ),
-                ],
-              ),
-              Row(
-                children: <Widget>[
-                  Text(
-                    dataPasienProvider.nama,
-                    style: const TextStyle(
-                        fontWeight: FontWeight.w600, fontSize: 25),
-                  )
                 ],
               ),
               Container(
