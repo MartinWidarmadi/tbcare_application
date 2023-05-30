@@ -17,7 +17,7 @@ class KonsultasiPage extends StatelessWidget {
                   color: const Color(0xff73FE9A),
                   height: 90,
                   width: MediaQuery.of(context).size.width,
-                  padding: const const EdgeInsets.only(top: 20),
+                  padding: const EdgeInsets.only(top: 20),
                   child: Row(
                     children: <Widget>[
                       const SizedBox(
@@ -52,7 +52,7 @@ class KonsultasiPage extends StatelessWidget {
             ),
             SingleChildScrollView(
               child: Container(
-                margin: const const EdgeInsets.symmetric(vertical: 0, horizontal: 20),
+                margin: const EdgeInsets.symmetric(vertical: 0, horizontal: 20),
                 width: MediaQuery.of(context).size.width,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

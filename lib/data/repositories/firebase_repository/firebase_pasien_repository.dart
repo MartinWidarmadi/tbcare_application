@@ -54,13 +54,7 @@ class FirebasePasienRepository implements PasienRepository {
       final uid = accLogin.user!.uid;
       return TResult.success(uid);
     } on FirebaseAuthException catch (e) {
-      var errorMessage = '';
-      if (e.code == 'user-not-found') {
-        errorMessage = 'Tidak jemaat yang menggunakan akun ini.';
-      } else if (e.code == 'wrong-password') {
-        errorMessage = 'Password salah.';
-      }
-      return TResult.failed(errorMessage);
+      return TResult.failed(e.message!);
     } catch (e) {
       return TResult.failed(e.toString());
     }

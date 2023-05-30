@@ -72,23 +72,6 @@ class LoginPage extends ConsumerWidget {
                     hintText: 'Password',
                   ),
                 ),
-                // ElevatedButton(
-                //     onPressed: () async {
-                //       var auth = await FirebasePasienRepository()
-                //           .accountAuth('desika@email.com', '123456');
-
-                //       auth.when(
-                //           success: (data) => print(data),
-                //           failed: (message) => print(message));
-
-                //       var ambilData = await FirebasePasienRepository()
-                //           .getPasienData('3Os2TT3qvmTQetG6F0XYwLjGogp1');
-
-                //       ambilData.when(
-                //           success: (data) => print(data),
-                //           failed: (message) => print(message));
-                //     },
-                //     child: const Text('test')),
                 LoginBtnWidget(
                     emailController: emailController,
                     passwordController: passwordController,
@@ -96,7 +79,7 @@ class LoginPage extends ConsumerWidget {
                     text: "Masuk"),
                 const Text("Atau"),
                 Container(
-                    margin: const const EdgeInsets.fromLTRB(100, 20, 100, 25),
+                    margin: const EdgeInsets.fromLTRB(100, 20, 100, 25),
                     child: const Row(
                       children: <Widget>[
                         Icon(Icons.email, size: 35, color: Color(0xff007E23)),
