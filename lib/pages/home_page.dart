@@ -120,9 +120,9 @@ class HomePage extends ConsumerWidget {
               ),
               Row(
                 children: <Widget>[
-                  const Text(
-                    "Desika Candra",
-                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 25),
+                  Text(
+                    dataPasienProvider.nama,
+                    style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 25),
                   ),
                   const Spacer(),
                   Container(
